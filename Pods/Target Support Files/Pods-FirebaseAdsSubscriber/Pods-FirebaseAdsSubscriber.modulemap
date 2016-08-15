@@ -1,0 +1,6 @@
+framework module Pods_FirebaseAdsSubscriber {
+  umbrella header "Pods-FirebaseAdsSubscriber-umbrella.h"
+
+  export *
+  module * { export * }
+}
