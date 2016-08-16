@@ -7,9 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22AF6CC81D63601000616327 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AF6CC71D63601000616327 /* Constants.swift */; };
 		DB7F7BD820C6114E3D66BF8B /* Pods_FirebaseAdsPublisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF08F20C7FD79DA974A57A6A /* Pods_FirebaseAdsPublisher.framework */; };
+		E935DC181D62496300A755ED /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E935DC171D62496300A755ED /* MBProgressHUD.m */; };
+		E935DC1A1D624A9C00A755ED /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E935DC171D62496300A755ED /* MBProgressHUD.m */; };
+		E935DC381D624D1400A755ED /* AddQuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E935DC341D624D1400A755ED /* AddQuestionVC.swift */; };
+		E935DC391D624D1400A755ED /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E935DC351D624D1400A755ED /* HomeVC.swift */; };
+		E935DC3A1D624D1400A755ED /* OnlineUsersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E935DC361D624D1400A755ED /* OnlineUsersVC.swift */; };
+		E935DC3B1D624D1400A755ED /* ResultsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E935DC371D624D1400A755ED /* ResultsVC.swift */; };
+		E935DC421D624D9B00A755ED /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E935DC3D1D624D9B00A755ED /* Constants.swift */; };
+		E935DC431D624D9B00A755ED /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E935DC401D624D9B00A755ED /* ChannelCell.swift */; };
+		E935DC441D624D9B00A755ED /* TextfieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E935DC411D624D9B00A755ED /* TextfieldCell.swift */; };
+		E935DC491D624F1200A755ED /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E935DC481D624F1200A755ED /* FirebaseManager.swift */; };
+		E935DC4C1D625A6800A755ED /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E935DC4B1D625A6800A755ED /* ViewControllerExtension.swift */; };
 		E9B2A6411D621A89006C533A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B2A6401D621A89006C533A /* AppDelegate.swift */; };
-		E9B2A6431D621A89006C533A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B2A6421D621A89006C533A /* ViewController.swift */; };
 		E9B2A6461D621A89006C533A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B2A6441D621A89006C533A /* Main.storyboard */; };
 		E9B2A6481D621A89006C533A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9B2A6471D621A89006C533A /* Assets.xcassets */; };
 		E9B2A64B1D621A89006C533A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E9B2A6491D621A89006C533A /* LaunchScreen.storyboard */; };
@@ -22,14 +33,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22AF6CC71D63601000616327 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		461036EBF6CDC5C1A557AAEB /* Pods-FirebaseAdsPublisher.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseAdsPublisher.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseAdsPublisher/Pods-FirebaseAdsPublisher.debug.xcconfig"; sourceTree = "<group>"; };
 		93518EFE6B6D1DAB0E59A8DE /* Pods-FirebaseAdsSubscriber.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseAdsSubscriber.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseAdsSubscriber/Pods-FirebaseAdsSubscriber.release.xcconfig"; sourceTree = "<group>"; };
 		977BD12A17F686F2296ACE1E /* Pods-FirebaseAdsSubscriber.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseAdsSubscriber.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseAdsSubscriber/Pods-FirebaseAdsSubscriber.debug.xcconfig"; sourceTree = "<group>"; };
 		BF08F20C7FD79DA974A57A6A /* Pods_FirebaseAdsPublisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseAdsPublisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB483BC56C1652F12B8A5A8F /* Pods_FirebaseAdsSubscriber.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseAdsSubscriber.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E935DC161D62496300A755ED /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		E935DC171D62496300A755ED /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		E935DC191D624A0600A755ED /* FirebasePubSub-Bridging.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FirebasePubSub-Bridging.pch"; sourceTree = "<group>"; };
+		E935DC341D624D1400A755ED /* AddQuestionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddQuestionVC.swift; sourceTree = "<group>"; };
+		E935DC351D624D1400A755ED /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		E935DC361D624D1400A755ED /* OnlineUsersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnlineUsersVC.swift; sourceTree = "<group>"; };
+		E935DC371D624D1400A755ED /* ResultsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsVC.swift; sourceTree = "<group>"; };
+		E935DC3D1D624D9B00A755ED /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E935DC401D624D9B00A755ED /* ChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
+		E935DC411D624D9B00A755ED /* TextfieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextfieldCell.swift; sourceTree = "<group>"; };
+		E935DC481D624F1200A755ED /* FirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		E935DC4B1D625A6800A755ED /* ViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		E9B2A63E1D621A89006C533A /* FirebaseAdsPublisher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FirebaseAdsPublisher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9B2A6401D621A89006C533A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E9B2A6421D621A89006C533A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E9B2A6451D621A89006C533A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E9B2A6471D621A89006C533A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9B2A64A1D621A89006C533A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,6 +87,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		22AF6CC41D62EF1300616327 /* Miscellaneous */ = {
+			isa = PBXGroup;
+			children = (
+				22AF6CC71D63601000616327 /* Constants.swift */,
+			);
+			path = Miscellaneous;
+			sourceTree = "<group>";
+		};
 		5504E3A622C0DCA3823DD738 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,9 +115,89 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E935DC131D62496300A755ED /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E935DC4A1D625A6800A755ED /* Extension */,
+				E935DC141D62496300A755ED /* ThirdParty */,
+				E935DC191D624A0600A755ED /* FirebasePubSub-Bridging.pch */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		E935DC141D62496300A755ED /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				E935DC151D62496300A755ED /* MBProgressHUD */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
+		E935DC151D62496300A755ED /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				E935DC161D62496300A755ED /* MBProgressHUD.h */,
+				E935DC171D62496300A755ED /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		E935DC331D624D1400A755ED /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E935DC341D624D1400A755ED /* AddQuestionVC.swift */,
+				E935DC351D624D1400A755ED /* HomeVC.swift */,
+				E935DC361D624D1400A755ED /* OnlineUsersVC.swift */,
+				E935DC371D624D1400A755ED /* ResultsVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E935DC3C1D624D9B00A755ED /* Miscellaneous */ = {
+			isa = PBXGroup;
+			children = (
+				E935DC3D1D624D9B00A755ED /* Constants.swift */,
+			);
+			path = Miscellaneous;
+			sourceTree = "<group>";
+		};
+		E935DC3E1D624D9B00A755ED /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E935DC3F1D624D9B00A755ED /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E935DC3F1D624D9B00A755ED /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E935DC401D624D9B00A755ED /* ChannelCell.swift */,
+				E935DC411D624D9B00A755ED /* TextfieldCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		E935DC451D624EFD00A755ED /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E935DC481D624F1200A755ED /* FirebaseManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E935DC4A1D625A6800A755ED /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				E935DC4B1D625A6800A755ED /* ViewControllerExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		E9B2A61C1D621A3C006C533A = {
 			isa = PBXGroup;
 			children = (
+				E935DC131D62496300A755ED /* Common */,
 				E9B2A63F1D621A89006C533A /* FirebaseAdsPublisher */,
 				E9B2A6551D621AAE006C533A /* FirebaseAdsSubscriber */,
 				E9B2A6261D621A3C006C533A /* Products */,
@@ -107,8 +218,11 @@
 		E9B2A63F1D621A89006C533A /* FirebaseAdsPublisher */ = {
 			isa = PBXGroup;
 			children = (
+				E935DC451D624EFD00A755ED /* Managers */,
+				E935DC3C1D624D9B00A755ED /* Miscellaneous */,
+				E935DC3E1D624D9B00A755ED /* Views */,
+				E935DC331D624D1400A755ED /* ViewControllers */,
 				E9B2A6401D621A89006C533A /* AppDelegate.swift */,
-				E9B2A6421D621A89006C533A /* ViewController.swift */,
 				E9B2A6441D621A89006C533A /* Main.storyboard */,
 				E9B2A6471D621A89006C533A /* Assets.xcassets */,
 				E9B2A6491D621A89006C533A /* LaunchScreen.storyboard */,
@@ -120,6 +234,7 @@
 		E9B2A6551D621AAE006C533A /* FirebaseAdsSubscriber */ = {
 			isa = PBXGroup;
 			children = (
+				22AF6CC41D62EF1300616327 /* Miscellaneous */,
 				E9B2A6561D621AAE006C533A /* AppDelegate.swift */,
 				E9B2A6581D621AAE006C533A /* ViewController.swift */,
 				E9B2A65A1D621AAE006C533A /* Main.storyboard */,
@@ -331,7 +446,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9B2A6431D621A89006C533A /* ViewController.swift in Sources */,
+				E935DC181D62496300A755ED /* MBProgressHUD.m in Sources */,
+				E935DC441D624D9B00A755ED /* TextfieldCell.swift in Sources */,
+				E935DC3B1D624D1400A755ED /* ResultsVC.swift in Sources */,
+				E935DC391D624D1400A755ED /* HomeVC.swift in Sources */,
+				E935DC491D624F1200A755ED /* FirebaseManager.swift in Sources */,
+				E935DC3A1D624D1400A755ED /* OnlineUsersVC.swift in Sources */,
+				E935DC421D624D9B00A755ED /* Constants.swift in Sources */,
+				E935DC4C1D625A6800A755ED /* ViewControllerExtension.swift in Sources */,
+				E935DC431D624D9B00A755ED /* ChannelCell.swift in Sources */,
+				E935DC381D624D1400A755ED /* AddQuestionVC.swift in Sources */,
 				E9B2A6411D621A89006C533A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,7 +465,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9B2A6591D621AAE006C533A /* ViewController.swift in Sources */,
+				E935DC1A1D624A9C00A755ED /* MBProgressHUD.m in Sources */,
 				E9B2A6571D621AAE006C533A /* AppDelegate.swift in Sources */,
+				22AF6CC81D63601000616327 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,9 +598,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FirebaseAdsPublisher/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = YMediaLabs.FirebaseAdsPublisher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Common/FirebasePubSub-Bridging.pch";
 			};
 			name = Debug;
 		};
@@ -484,9 +612,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FirebaseAdsPublisher/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = YMediaLabs.FirebaseAdsPublisher;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Common/FirebasePubSub-Bridging.pch";
 			};
 			name = Release;
 		};
@@ -496,6 +626,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FirebaseAdsSubscriber/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = YMediaLabs.FirebaseAdsSubscriber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -508,6 +639,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = FirebaseAdsSubscriber/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = YMediaLabs.FirebaseAdsSubscriber;
 				PRODUCT_NAME = "$(TARGET_NAME)";
