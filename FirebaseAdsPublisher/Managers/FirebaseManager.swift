@@ -13,13 +13,15 @@ class FirebaseManager: NSObject {
     
     static let sharedInstance = FirebaseManager()
     
+    private var onlineUsersFirebase: FIRDatabaseReference?
+    
     // MARK: Initialization methods
     override init() {
         super.init()
     }
     
     deinit {
-
+        self.stopListeningToOnlineUsersCount()
     }
 
     // MARK: Public methods
@@ -62,6 +64,28 @@ class FirebaseManager: NSObject {
                 userInfo["error"] = error
             }
             NSNotificationCenter.defaultCenter().postNotificationName(kNotificationUploadedQuestion, object: nil, userInfo: userInfo)
+        }
+    }
+    
+    func listenToOnlineUsersCount() {
+        self.stopListeningToOnlineUsersCount()
+        
+        self.onlineUsersFirebase = FIRDatabase.database().reference().child(kChannelsOnlineUsers)
+        self.onlineUsersFirebase?.observeEventType(FIRDataEventType.Value, withBlock: { (dataSnapshot: FIRDataSnapshot) in
+            guard dataSnapshot.exists() else {
+                NSNotificationCenter.defaultCenter().postNotificationName(kNotificationOnlineUsers, object: nil)
+                return
+            }
+            
+            let userInfo = dataSnapshot.value as! [String: AnyObject]
+            NSNotificationCenter.defaultCenter().postNotificationName(kNotificationOnlineUsers, object: nil, userInfo: userInfo)
+        })
+    }
+    
+    func stopListeningToOnlineUsersCount() {
+        if self.onlineUsersFirebase != nil {
+            self.onlineUsersFirebase?.removeAllObservers()
+            self.onlineUsersFirebase = nil
         }
     }
 }

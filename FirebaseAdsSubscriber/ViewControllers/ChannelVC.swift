@@ -41,20 +41,11 @@ class ChannelVC: UIViewController, OverlayProtocol {
         self.title = self.channelName
         
         self.addObservers()
+        self.registerUserAsOnline()
         self.listenToPresentQuestions()
         // Do any additional setup after loading the view.
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        self.registerUserAsOnline()
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.unregisterUserAsOnline()
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -77,7 +68,6 @@ class ChannelVC: UIViewController, OverlayProtocol {
     }
     
     private func createOverlayViewWith(overlayData: [String: AnyObject]) {
-        print(overlayData)
         if let durationTime = overlayData[QuestionText.Duration.getDictKeyTitle()] as! Double? {
             let count = self.snapshotData.count
             self.snapshotData[count] = overlayData

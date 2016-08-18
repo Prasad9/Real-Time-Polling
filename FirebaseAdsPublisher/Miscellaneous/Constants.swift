@@ -12,3 +12,4 @@ import Foundation
 let kNotificationAllChannels = "notificationAllChannels"
 let kNotificationAddedChannel = "notificationAddedChannel"
 let kNotificationUploadedQuestion = "notificationUploadedQuestion"
+let kNotificationOnlineUsers = "notificationOnlineUsers"

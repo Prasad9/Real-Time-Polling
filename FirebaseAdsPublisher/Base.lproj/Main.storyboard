@@ -8,7 +8,7 @@
         <!--Online Users-->
         <scene sceneID="WiB-gh-46r">
             <objects>
-                <viewController storyboardIdentifier="OnlineUsersVC" extendedLayoutIncludesOpaqueBars="YES" id="h1J-fO-0Ap" customClass="OnlineUsersVC" customModule="FirebaseAdsPublisher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnlineUsersVC" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="h1J-fO-0Ap" customClass="OnlineUsersVC" customModule="FirebaseAdsPublisher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X8f-gu-8Ij"/>
                         <viewControllerLayoutGuide type="bottom" id="BJk-tv-XKQ"/>
