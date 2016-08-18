@@ -17,6 +17,7 @@ class AddQuestionVC: UIViewController{
     
     private var noOfExtraOptionsOn = 0
     private var isAddButtonOn = false
+    private var enteredData = [String](count: QuestionText.getTotalTextLabels(), repeatedValue: "")
     
     // MARK: Class methods
     class func instantiateStoryboard() -> AddQuestionVC {
@@ -34,8 +35,8 @@ class AddQuestionVC: UIViewController{
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        if let textField = self.view.viewWithTag(1) as! UITextField? {
-            textField.becomeFirstResponder()
+        if let cell = self.questionTableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)) as! TextfieldCell? {
+            cell.textField.becomeFirstResponder()
         }
     }
     
@@ -60,11 +61,13 @@ class AddQuestionVC: UIViewController{
             self.questionTableView.beginUpdates()
             self.questionTableView.reloadRowsAtIndexPaths([lastIndexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
             self.questionTableView.endUpdates()
+            self.enteredData[QuestionText.getTotalTextLabels() - 1] = ""
         }
         else {
             self.questionTableView.beginUpdates()
             self.questionTableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: QuestionText.getTotalTextLabels() - 2, inSection: 0)], withRowAnimation: UITableViewRowAnimation.Automatic)
             self.questionTableView.endUpdates()
+            self.enteredData[QuestionText.getTotalTextLabels() - 2] = ""
         }
     }
     
@@ -194,6 +197,7 @@ extension AddQuestionVC: UITableViewDataSource, UITableViewDelegate {
         else {
             let textCell = tableView.dequeueReusableCellWithIdentifier("TextfieldCell") as! TextfieldCell?
             textCell?.descLabel.text = QuestionText.getTextLabelAtIndex(indexPath.row)
+            textCell?.textField.text = self.enteredData[indexPath.row]
             
             var isRemoveBtnHidden = true
             if self.noOfExtraOptionsOn > 0 {
@@ -207,6 +211,7 @@ extension AddQuestionVC: UITableViewDataSource, UITableViewDelegate {
             textCell?.setRemoveBtnHidden(isRemoveBtnHidden)
             textCell?.textField.tag = indexPath.row + 1
             textCell?.textField.keyboardType = QuestionText.isInputNumberAtIndex(indexPath.row) ? UIKeyboardType.NumbersAndPunctuation : UIKeyboardType.ASCIICapable
+            textCell?.textField.tag = indexPath.row
             cell = textCell
         }
         
@@ -254,5 +259,9 @@ extension AddQuestionVC: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        self.enteredData[textField.tag] = textField.text ?? ""
     }
 }
