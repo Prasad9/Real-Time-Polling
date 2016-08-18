@@ -8,68 +8,6 @@
 
 import UIKit
 
-private enum QuestionText: Int {
-    case Title = 0
-    case SpawnX = 1
-    case SpawnY = 2
-    case Question = 3
-    case Duration = 4
-    case Option1 = 5
-    case Option2 = 6
-    case Option3 = 7
-    case Option4 = 8
-    
-    private func getLabelText() -> String {
-        switch self {
-        case .Title:
-            return "Title"
-        case .SpawnX:
-            return "Spawn X (%age)"
-        case .SpawnY:
-            return "Spawn Y (%age)"
-        case .Question:
-            return "Question"
-        case .Duration:
-            return "Duration (in secs)"
-        case .Option1:
-            return "Option 1"
-        case .Option2:
-            return "Option 2"
-        case .Option3:
-            return "Option 3"
-        case .Option4:
-            return "Option 4"
-        }
-    }
-    
-    private func isInputNumber() -> Bool {
-        switch self {
-        case .Title, .Question, .Option1, .Option2, .Option3, .Option4:
-            return false
-        case .SpawnX, .SpawnY, .Duration:
-            return true
-        }
-    }
-    
-    static func getTotalTextLabels() -> Int {
-        return QuestionText.Option4.rawValue + 1
-    }
-    
-    static func getTextLabelAtIndex(index: Int) -> String {
-        if let questionText = QuestionText(rawValue: index) {
-            return questionText.getLabelText()
-        }
-        return ""
-    }
-    
-    static func isInputNumberAtIndex(index: Int) -> Bool {
-        if let questionText = QuestionText(rawValue: index) {
-            return questionText.isInputNumber()
-        }
-        return false
-    }
-}
-
 class AddQuestionVC: UIViewController{
     
     var channelName: String?
@@ -191,15 +129,14 @@ class AddQuestionVC: UIViewController{
             if let textField = self.view.viewWithTag(counter + 1) as! UITextField?,
                textFieldText = textField.text where textFieldText.characters.count > 0 {
                 if [QuestionText.Title, .Question, .Option1, .Option2, .Option3, .Option4].contains(questionText) {
-                    uploadData[questionText.getLabelText()] = textFieldText
+                    uploadData[questionText.getDictKeyTitle()] = textFieldText
                 }
                 else if [QuestionText.SpawnX, .SpawnY].contains(questionText) {
-                    uploadData[questionText.getLabelText()] = Float(textFieldText)
+                    uploadData[questionText.getDictKeyTitle()] = Float(textFieldText)
                 }
                 else if questionText == .Duration {
                     if let interval = Double(textFieldText) {
-                        // Assuming time is set correctly.
-                        uploadData[questionText.getLabelText()] = floor(NSDate().timeIntervalSince1970 + interval)
+                        uploadData[questionText.getDictKeyTitle()] = interval * 1000  // To store in milliseconds
                     }
                 }
             }
@@ -217,12 +154,7 @@ class AddQuestionVC: UIViewController{
     
     private func uploadDataToServer(data: [String: AnyObject]) {
         if let channelName = self.channelName {
-            let timestamp = Int(floor(NSDate().timeIntervalSince1970))
-            let uploadKeyName = channelName + kChannelsQuiz + "/" + String(timestamp)
-            var questionData = data
-            questionData[kKeyQuestionId] = timestamp
-            
-            FirebaseManager.sharedInstance.uploadQuestionAtNode(uploadKeyName, withData: questionData)
+            FirebaseManager.sharedInstance.uploadQuestionAtChannel(channelName, withData: data)
         }
     }
     

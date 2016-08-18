@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+let kOverlayBtnWidth: CGFloat = 44.0
+
+// MARK: Notification methods
+let kNotificationAllChannels = "notificationAllChannels"
+let kNotificationReceivedQuestion = "notificationReceivedQuestion"

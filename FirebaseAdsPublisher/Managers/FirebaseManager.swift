@@ -49,9 +49,12 @@ class FirebaseManager: NSObject {
         }
     }
     
-    func uploadQuestionAtNode(keyName: String, withData data: [String: AnyObject]) {
-        let uploadQuestionFirebase = FIRDatabase.database().reference().child(keyName)
-        uploadQuestionFirebase.setValue(data) { (error: NSError?, databaseReference: FIRDatabaseReference) in
+    func uploadQuestionAtChannel(channelName: String, withData data: [String: AnyObject]) {
+        var uploadData = data
+        uploadData[kKeyQuestionId] = FIRServerValue.timestamp()
+        
+        let uploadQuestionFirebase = FIRDatabase.database().reference().child(channelName + kChannelsQuiz).childByAutoId()
+        uploadQuestionFirebase.setValue(uploadData) { (error: NSError?, databaseReference: FIRDatabaseReference) in
             let isUploaded = error == nil
             var userInfo: [String: AnyObject] = ["isUploaded": isUploaded]
             if !isUploaded,
