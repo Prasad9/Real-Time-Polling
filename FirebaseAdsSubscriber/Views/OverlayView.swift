@@ -59,6 +59,7 @@ class OverlayView: UIView {
         if let dismissOverlayAfter = self.dismissOverlayAfter {
             let animation = CABasicAnimation()
             animation.autoreverses = false
+            animation.removedOnCompletion = false
             animation.beginTime = CACurrentMediaTime() + beginTime
             animation.keyPath = "transform"
             animation.repeatCount = Float(2.0 * dismissOverlayAfter / duration)

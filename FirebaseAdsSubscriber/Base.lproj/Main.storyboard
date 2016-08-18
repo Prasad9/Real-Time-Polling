@@ -54,6 +54,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kQ2-Qc-Ka7">
+                                <rect key="frame" x="269" y="286" width="63" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tWH-Fa-wer">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <subviews>
@@ -186,6 +192,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.066666666669999999" green="0.42352941179999998" blue="0.72156862749999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="kQ2-Qc-Ka7" firstAttribute="centerY" secondItem="I3K-YU-IJ2" secondAttribute="centerY" id="EEz-ag-Udq"/>
+                            <constraint firstItem="kQ2-Qc-Ka7" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="I3K-YU-IJ2" secondAttribute="leading" constant="20" id="FrB-PD-uAB"/>
+                            <constraint firstItem="kQ2-Qc-Ka7" firstAttribute="centerX" secondItem="I3K-YU-IJ2" secondAttribute="centerX" id="P6U-ts-ab7"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kQ2-Qc-Ka7" secondAttribute="trailing" constant="20" id="Qc1-FV-o89"/>
                             <constraint firstItem="mHb-iK-rJM" firstAttribute="top" secondItem="tWH-Fa-wer" secondAttribute="bottom" id="Udn-PT-qET"/>
                             <constraint firstItem="tWH-Fa-wer" firstAttribute="top" secondItem="HrS-Ez-v19" secondAttribute="bottom" id="kcD-R4-YBS"/>
                             <constraint firstAttribute="trailing" secondItem="tWH-Fa-wer" secondAttribute="trailing" id="n7N-4E-UgM"/>
@@ -201,6 +211,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="channelNameLabel" destination="kQ2-Qc-Ka7" id="LRV-dX-sz4"/>
                         <outlet property="optionBtn1" destination="gvf-4y-o9p" id="yGo-YH-iaE"/>
                         <outlet property="optionBtn2" destination="Mtf-TE-7jh" id="bgv-U8-44e"/>
                         <outlet property="optionBtn3" destination="J9E-8b-lH0" id="abS-rn-Axb"/>

@@ -14,6 +14,8 @@ class ChannelVC: UIViewController, OverlayProtocol {
     
     private var snapshotData: [Int: AnyObject] = [:]
     
+    @IBOutlet weak var channelNameLabel: UILabel!
+    
     @IBOutlet weak var questionView: UIView!
     @IBOutlet weak var questionTitleLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
@@ -41,6 +43,7 @@ class ChannelVC: UIViewController, OverlayProtocol {
         self.title = self.channelName
         
         self.addObservers()
+        self.makeUISetup()
         self.registerUserAsOnline()
         self.listenToPresentQuestions()
         // Do any additional setup after loading the view.
@@ -59,6 +62,10 @@ class ChannelVC: UIViewController, OverlayProtocol {
     // MARK: Private methods
     private func addObservers() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(receivedQuestionNotification(_:)), name: kNotificationReceivedQuestion, object: nil)
+    }
+    
+    private func makeUISetup() {
+        self.channelNameLabel.text = channelName
     }
     
     private func listenToPresentQuestions() {

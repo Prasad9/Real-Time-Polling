@@ -48,7 +48,14 @@ class FirebaseManager: NSObject {
             }
             
             if let userInfo = dataSnapshot.value as! [String: AnyObject]? {
-                NSNotificationCenter.defaultCenter().postNotificationName(kNotificationReceivedQuestion, object: nil, userInfo: userInfo)
+                let currentTimeStamp = Int(NSDate().timeIntervalSince1970 * 1000)
+                // TODO: Need to fetch the time from Firebase server.
+                // But fetching can take time which will result
+                // in delay of question getting displayed.
+                if let questionId = userInfo[kKeyQuestionId] as! Int? where currentTimeStamp - questionId < 15000  {
+                    // Need not display questions older than 15 seconds.
+                    NSNotificationCenter.defaultCenter().postNotificationName(kNotificationReceivedQuestion, object: nil, userInfo: userInfo)
+                }
             }
         }
     }
