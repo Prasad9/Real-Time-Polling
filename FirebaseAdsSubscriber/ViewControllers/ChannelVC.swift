@@ -90,7 +90,7 @@ class ChannelVC: UIViewController, OverlayProtocol {
                 overlayView.center = CGPoint(x: centerX, y: centerY)
             }
             self.view.addSubview(overlayView)
-            overlayView.createOverlayViewWithIndex(count, dismissOverlayAfter: durationTime)
+            overlayView.createOverlayViewWithIndex(count, dismissOverlayAfter: durationTime / 1000)
         }
     }
     
@@ -136,18 +136,13 @@ class ChannelVC: UIViewController, OverlayProtocol {
     }
     
     @IBAction func submitBtnTapped(sender: AnyObject) {
-//        if let channelName = self.channelName,
-//            selectedOverlayIndex = self.selectedOverlayIndex,
-//            overlayData = self.snapshotData[selectedOverlayIndex] as! [String: AnyObject]?,
-//            questionId = overlayData[kKeyQuestionId] as! Int? {
-//                let url = kBaseHandle + channelName + kChannelsAnswer + "/" + String(questionId) + "/" + String(self.selectedOption)
-//                let firebase = Firebase(url: url).childByAutoId()
-//                let currentTimeStamp = Int(floor(NSDate().timeIntervalSince1970))
-//                firebase.setValue(currentTimeStamp, withCompletionBlock: { (error: NSError!, firebase: Firebase!) -> Void in
-//                    
-//                })
-//                self.questionView.hidden = true
-//        }
+        if let channelName = self.channelName,
+            selectedOverlayIndex = self.selectedOverlayIndex,
+            overlayData = self.snapshotData[selectedOverlayIndex] as! [String: AnyObject]?,
+            questionId = overlayData[kKeyQuestionId] as! Int? {
+            FirebaseManager.sharedInstance.uploadAnswerWithOptionNo(self.selectedOption, forQuestion: questionId, inChannel: channelName)
+                self.questionView.hidden = true
+        }
     }
     
     func receivedQuestionNotification(notification: NSNotification) {

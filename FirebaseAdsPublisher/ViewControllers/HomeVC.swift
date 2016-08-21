@@ -104,12 +104,10 @@ class HomeVC: UIViewController {
     }
     
     @IBAction func resultBtnTapped(sender: AnyObject) {
-//        let btnTag = (sender as! UIButton).tag
-//        if let channelsArray = self.channelsArray {
-//            let resultsVC = ResultsVC.instantiateStoryboard()
-//            resultsVC.channelName = channelsArray[btnTag]
-//            self.navigationController?.pushViewController(resultsVC, animated: true)
-//        }
+        let btnTag = (sender as! UIButton).tag
+        let resultsVC = ResultsVC.instantiateStoryboard()
+        resultsVC.channelName = self.channelsArray[btnTag]
+        self.navigationController?.pushViewController(resultsVC, animated: true)
     }
 }
 

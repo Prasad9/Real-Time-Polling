@@ -144,7 +144,7 @@
         <!--Select Question-->
         <scene sceneID="kXa-JI-BYD">
             <objects>
-                <viewController storyboardIdentifier="ResultsVC" id="tx7-Pk-IKk" customClass="ResultsVC" customModule="FirebaseAdsPublisher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultsVC" automaticallyAdjustsScrollViewInsets="NO" id="tx7-Pk-IKk" customClass="ResultsVC" customModule="FirebaseAdsPublisher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BJv-WM-Swi"/>
                         <viewControllerLayoutGuide type="bottom" id="FHB-WV-tIo"/>

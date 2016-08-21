@@ -129,8 +129,8 @@ class AddQuestionVC: UIViewController{
         let currentTextLabels = self.getNoOfTextFieldCells() - 1
         for counter in 0...currentTextLabels {
             let questionText = QuestionText(rawValue: counter)!
-            if let textField = self.view.viewWithTag(counter + 1) as! UITextField?,
-               textFieldText = textField.text where textFieldText.characters.count > 0 {
+            let textFieldText = self.enteredData[counter]
+            if textFieldText.characters.count > 0 {
                 if [QuestionText.Title, .Question, .Option1, .Option2, .Option3, .Option4].contains(questionText) {
                     uploadData[questionText.getDictKeyTitle()] = textFieldText
                 }
@@ -209,7 +209,6 @@ extension AddQuestionVC: UITableViewDataSource, UITableViewDelegate {
                 }
             }
             textCell?.setRemoveBtnHidden(isRemoveBtnHidden)
-            textCell?.textField.tag = indexPath.row + 1
             textCell?.textField.keyboardType = QuestionText.isInputNumberAtIndex(indexPath.row) ? UIKeyboardType.NumbersAndPunctuation : UIKeyboardType.ASCIICapable
             textCell?.textField.tag = indexPath.row
             cell = textCell

@@ -52,8 +52,8 @@ class FirebaseManager: NSObject {
                 // TODO: Need to fetch the time from Firebase server.
                 // But fetching can take time which will result
                 // in delay of question getting displayed.
-                if let questionId = userInfo[kKeyQuestionId] as! Int? where currentTimeStamp - questionId < 15000  {
-                    // Need not display questions older than 15 seconds.
+                if let questionId = userInfo[kKeyQuestionId] as! Int? where currentTimeStamp - questionId < kConstGraceSecTimeAllowed * 1000  {
+                    // Need not display questions older than grace seconds.
                     NSNotificationCenter.defaultCenter().postNotificationName(kNotificationReceivedQuestion, object: nil, userInfo: userInfo)
                 }
             }
@@ -79,5 +79,11 @@ class FirebaseManager: NSObject {
     func unregisterUserAsOnline() {
         self.onlineUserFirebase?.removeValue()
         self.onlineUserFirebase = nil
+    }
+    
+    func uploadAnswerWithOptionNo(optionNo: Int, forQuestion questionId: Int, inChannel channelName: String) {
+        let nodeAt = channelName + kChannelsAnswer + "/" + String(questionId) + "/" + String(optionNo)
+        let answerFirebase = FIRDatabase.database().reference().child(nodeAt).childByAutoId()
+        answerFirebase.setValue(FIRServerValue.timestamp())
     }
 }

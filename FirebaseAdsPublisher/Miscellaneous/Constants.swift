@@ -13,3 +13,10 @@ let kNotificationAllChannels = "notificationAllChannels"
 let kNotificationAddedChannel = "notificationAddedChannel"
 let kNotificationUploadedQuestion = "notificationUploadedQuestion"
 let kNotificationOnlineUsers = "notificationOnlineUsers"
+let kNotificationFetchedQuestions = "notificationFetchedQuestions"
+let kNotificationFetchedAnswers = "notificationFetchedAnswers"
+
+// MARK: Constant values
+let kConstIsContinuous = "isContinuous"
+let kConstIndex = "index"
+let kConstCount = "count"

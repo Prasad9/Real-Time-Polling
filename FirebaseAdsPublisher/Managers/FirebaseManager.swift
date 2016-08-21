@@ -14,6 +14,10 @@ class FirebaseManager: NSObject {
     static let sharedInstance = FirebaseManager()
     
     private var onlineUsersFirebase: FIRDatabaseReference?
+    private var option1Firebase: FIRDatabaseReference?
+    private var option2Firebase: FIRDatabaseReference?
+    private var option3Firebase: FIRDatabaseReference?
+    private var option4Firebase: FIRDatabaseReference?
     
     // MARK: Initialization methods
     override init() {
@@ -22,9 +26,11 @@ class FirebaseManager: NSObject {
     
     deinit {
         self.stopListeningToOnlineUsersCount()
+        self.stopContinousFirebaseAnswers()
     }
 
     // MARK: Public methods
+    // MARK: Channel methods
     func fetchAllChannels() {
         let allChannelsFirebase = FIRDatabase.database().reference().child(kChannelsList)
         allChannelsFirebase.observeSingleEventOfType(FIRDataEventType.Value) { (dataSnapshot: FIRDataSnapshot) in
@@ -51,6 +57,7 @@ class FirebaseManager: NSObject {
         }
     }
     
+    // MARK: Question methods
     func uploadQuestionAtChannel(channelName: String, withData data: [String: AnyObject]) {
         var uploadData = data
         uploadData[kKeyQuestionId] = FIRServerValue.timestamp()
@@ -67,6 +74,20 @@ class FirebaseManager: NSObject {
         }
     }
     
+    func fetchAllQuestionsInChannel(channelName: String) {
+        let questionsFirebase = FIRDatabase.database().reference().child(channelName + kChannelsQuiz)
+        questionsFirebase.queryOrderedByKey().observeSingleEventOfType(FIRDataEventType.Value) { (dataSnapshot: FIRDataSnapshot) in
+            guard dataSnapshot.exists() else {
+                NSNotificationCenter.defaultCenter().postNotificationName(kNotificationFetchedQuestions, object: nil)
+                return
+            }
+            
+            let questionData = dataSnapshot.value as! [String: AnyObject]
+            NSNotificationCenter.defaultCenter().postNotificationName(kNotificationFetchedQuestions, object: nil, userInfo: questionData)
+        }
+    }
+    
+    // MARK: Online User methods
     func listenToOnlineUsersCount() {
         self.stopListeningToOnlineUsersCount()
         
@@ -83,9 +104,85 @@ class FirebaseManager: NSObject {
     }
     
     func stopListeningToOnlineUsersCount() {
-        if self.onlineUsersFirebase != nil {
-            self.onlineUsersFirebase?.removeAllObservers()
-            self.onlineUsersFirebase = nil
+        self.onlineUsersFirebase?.removeAllObservers()
+        self.onlineUsersFirebase = nil
+    }
+    
+    // MARK: Answer methods
+    func listenToFirebaseAnswers(isContinuous: Bool, inChannel channelName: String, questionId: Int, totalOptions: Int) {
+        if isContinuous {
+            self.loadContinuousUserAnswersInChannel(channelName, questionId: questionId, totalOptions: totalOptions)
+        }
+        else {
+            self.loadStoredUserAnswersInChannel(channelName, questionId: questionId, totalOptions: totalOptions)
         }
     }
+    
+    func stopContinousFirebaseAnswers() {
+        self.option1Firebase?.removeAllObservers()
+        self.option1Firebase = nil
+        self.option2Firebase?.removeAllObservers()
+        self.option2Firebase = nil
+        self.option3Firebase?.removeAllObservers()
+        self.option3Firebase = nil
+        self.option4Firebase?.removeAllObservers()
+        self.option4Firebase = nil
+    }
+    
+    // MARK: Private methods
+    // MARK: Answer methods
+    private func loadStoredUserAnswersInChannel(channelName: String, questionId: Int, totalOptions: Int) {
+        for optionNo in 1...totalOptions {
+            let answerUrl = channelName + kChannelsAnswer + "/" + String(questionId) + "/" + String(optionNo)
+            let answerFirebase = FIRDatabase.database().reference().child(answerUrl)
+            answerFirebase.observeEventType(FIRDataEventType.Value) { (dataSnapshot: FIRDataSnapshot) in
+                let key = dataSnapshot.key
+                if let index = Int(key) {
+                    guard dataSnapshot.exists() else {
+                        let userInfo: [String: AnyObject] = [kConstIsContinuous: false, kConstIndex: index, kConstCount: 0]
+                        NSNotificationCenter.defaultCenter().postNotificationName(kNotificationFetchedAnswers, object: nil, userInfo: userInfo)
+                        return
+                    }
+                    
+                    if let valueDict = dataSnapshot.value as! [String: AnyObject]? {
+                        let userInfo: [String: AnyObject] = [kConstIsContinuous: false, kConstIndex: index, kConstCount: valueDict.count]
+                        NSNotificationCenter.defaultCenter().postNotificationName(kNotificationFetchedAnswers, object: nil, userInfo: userInfo)
+                    }
+                }
+            }
+        }
+    }
+    
+    private func loadContinuousUserAnswersInChannel(channelName: String, questionId: Int, totalOptions: Int) {
+        self.stopContinousFirebaseAnswers()
+        
+        for optionNo in 1...totalOptions {
+            let answerUrl = channelName + kChannelsAnswer + "/" + String(questionId) + "/" + String(optionNo)
+            let answerFirebase = FIRDatabase.database().reference().child(answerUrl)
+            switch optionNo {
+            case 1:
+                self.option1Firebase = answerFirebase
+            case 2:
+                self.option2Firebase = answerFirebase
+            case 3:
+                self.option3Firebase = answerFirebase
+            case 4:
+                self.option4Firebase = answerFirebase
+            default:
+                break
+            }
+            answerFirebase.observeEventType(FIRDataEventType.ChildAdded) { (dataSnapshot: FIRDataSnapshot) in
+                if let key = dataSnapshot.ref.parent?.key,
+                     index = Int(key) {
+                    guard dataSnapshot.exists() else {
+                        return
+                    }
+                    
+                    let userInfo: [String: AnyObject] = [kConstIsContinuous: true, kConstIndex: index, kConstCount: 1]
+                    NSNotificationCenter.defaultCenter().postNotificationName(kNotificationFetchedAnswers, object: nil, userInfo: userInfo)
+                }
+            }
+        }
+    }
+    
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22ACA11E1D674162003BB2AE /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ACA11D1D674162003BB2AE /* StringExtension.swift */; };
+		22ACA11F1D674162003BB2AE /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22ACA11D1D674162003BB2AE /* StringExtension.swift */; };
 		22AF6CC81D63601000616327 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AF6CC71D63601000616327 /* Constants.swift */; };
 		22AF6CD21D63622600616327 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AF6CCE1D63622600616327 /* ChannelVC.swift */; };
 		22AF6CD31D63622600616327 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22AF6CCF1D63622600616327 /* HomeVC.swift */; };
@@ -40,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22ACA11D1D674162003BB2AE /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		22AF6CC71D63601000616327 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		22AF6CCE1D63622600616327 /* ChannelVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
 		22AF6CCF1D63622600616327 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -229,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				E935DC4B1D625A6800A755ED /* ViewControllerExtension.swift */,
+				22ACA11D1D674162003BB2AE /* StringExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -495,6 +499,7 @@
 				E935DC491D624F1200A755ED /* FirebaseManager.swift in Sources */,
 				E935DC3A1D624D1400A755ED /* OnlineUsersVC.swift in Sources */,
 				22AF6D6D1D64B84F00616327 /* QuestionText.swift in Sources */,
+				22ACA11E1D674162003BB2AE /* StringExtension.swift in Sources */,
 				E935DC421D624D9B00A755ED /* Constants.swift in Sources */,
 				E935DC4C1D625A6800A755ED /* ViewControllerExtension.swift in Sources */,
 				E935DC431D624D9B00A755ED /* ChannelCell.swift in Sources */,
@@ -509,6 +514,7 @@
 			files = (
 				E935DC1A1D624A9C00A755ED /* MBProgressHUD.m in Sources */,
 				22AF6CD91D63625000616327 /* FirebaseManager.swift in Sources */,
+				22ACA11F1D674162003BB2AE /* StringExtension.swift in Sources */,
 				22AF6CD41D63622600616327 /* OverlayView.swift in Sources */,
 				E9B2A6571D621AAE006C533A /* AppDelegate.swift in Sources */,
 				22AF6CDF1D6368A900616327 /* CommonConstants.swift in Sources */,

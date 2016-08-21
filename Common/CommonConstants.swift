@@ -14,3 +14,5 @@ let kChannelsAnswer = "_answer"
 let kChannelsOnlineUsers = "onlineUsers"
 
 let kKeyQuestionId = "questionId"
+
+let kConstGraceSecTimeAllowed = 15
