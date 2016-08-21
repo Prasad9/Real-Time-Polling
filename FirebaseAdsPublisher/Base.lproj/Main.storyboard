@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -8,7 +8,7 @@
         <!--Online Users-->
         <scene sceneID="WiB-gh-46r">
             <objects>
-                <viewController storyboardIdentifier="OnlineUsersVC" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="h1J-fO-0Ap" customClass="OnlineUsersVC" customModule="FirebaseAdsPublisher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OnlineUsersVC" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="h1J-fO-0Ap" customClass="OnlineUsersVC" customModule="Publisher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="X8f-gu-8Ij"/>
                         <viewControllerLayoutGuide type="bottom" id="BJk-tv-XKQ"/>
@@ -53,7 +53,7 @@
         <!--Channels-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="HomeVC" customModule="FirebaseAdsPublisher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="BYZ-38-t0r" customClass="HomeVC" customModule="Publisher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -65,9 +65,8 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dxx-xu-Wrw">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="1" reuseIdentifier="ChannelCell" id="0Ly-Zc-gwq" customClass="ChannelCell" customModule="FirebaseAdsPublisher" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="1" reuseIdentifier="ChannelCell" id="0Ly-Zc-gwq" customClass="ChannelCell" customModule="Publisher" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Ly-Zc-gwq" id="ltc-Bt-rpX">
@@ -126,7 +125,7 @@
                                 <segue destination="h1J-fO-0Ap" kind="show" id="APN-nY-EDF"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="rNt-Bt-dNb">
+                        <barButtonItem key="rightBarButtonItem" title="Add Channel" id="rNt-Bt-dNb">
                             <connections>
                                 <action selector="addChannelBtnTapped:" destination="BYZ-38-t0r" id="W1c-VH-7tz"/>
                             </connections>
@@ -144,7 +143,7 @@
         <!--Select Question-->
         <scene sceneID="kXa-JI-BYD">
             <objects>
-                <viewController storyboardIdentifier="ResultsVC" automaticallyAdjustsScrollViewInsets="NO" id="tx7-Pk-IKk" customClass="ResultsVC" customModule="FirebaseAdsPublisher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultsVC" automaticallyAdjustsScrollViewInsets="NO" id="tx7-Pk-IKk" customClass="ResultsVC" customModule="Publisher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BJv-WM-Swi"/>
                         <viewControllerLayoutGuide type="bottom" id="FHB-WV-tIo"/>
@@ -304,7 +303,7 @@
         <!--Add Question-->
         <scene sceneID="3w9-p0-Irb">
             <objects>
-                <viewController storyboardIdentifier="AddQuestionVC" automaticallyAdjustsScrollViewInsets="NO" id="qfl-fY-GhS" customClass="AddQuestionVC" customModule="FirebaseAdsPublisher" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddQuestionVC" automaticallyAdjustsScrollViewInsets="NO" id="qfl-fY-GhS" customClass="AddQuestionVC" customModule="Publisher" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Hma-6L-aMh"/>
                         <viewControllerLayoutGuide type="bottom" id="BGG-a1-LIK"/>
@@ -317,7 +316,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextfieldCell" id="3In-2S-WcO" customClass="TextfieldCell" customModule="FirebaseAdsPublisher" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TextfieldCell" id="3In-2S-WcO" customClass="TextfieldCell" customModule="Publisher" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="1" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3In-2S-WcO" id="P5P-6b-CKi">
@@ -392,7 +391,7 @@
                                 <action selector="cancelBtnTapped:" destination="qfl-fY-GhS" id="jcX-yb-eYv"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="VPS-h1-6aY">
+                        <barButtonItem key="rightBarButtonItem" title="Publish" id="VPS-h1-6aY">
                             <connections>
                                 <action selector="saveBtnTapped:" destination="qfl-fY-GhS" id="Yj2-zy-HqY"/>
                             </connections>

@@ -192,7 +192,7 @@ extension AddQuestionVC: UITableViewDataSource, UITableViewDelegate {
                 cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: cellId)
                 cell?.textLabel?.textAlignment = NSTextAlignment.Center
             }
-            cell.textLabel?.text = "Add Another Cell"
+            cell.textLabel?.text = "Add Another Option"
         }
         else {
             let textCell = tableView.dequeueReusableCellWithIdentifier("TextfieldCell") as! TextfieldCell?
