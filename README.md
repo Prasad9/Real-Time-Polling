@@ -4,6 +4,9 @@ A real time audience polling iOS application built on top of Firebase. As shown 
 
 ![](Animation.gif)
 
+## Implementation tutorial:
+[Medium Post](https://medium.com/@prasad.pai/real-time-audience-polling-with-firebase-41f3854c37d5)
+
 ## Installation guide:
 1. Clone or download the project. The pods are already installed and has been uploaded in the github.
 2. Create your account in [Firebase](https://firebase.google.com).
