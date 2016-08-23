@@ -17,4 +17,14 @@ A real time audience polling iOS application built on top of Firebase. As shown 
 7. The `GoogleService-Info.plist` file should be automatically downloaded. Drag and drop this file into FirebaseAdsPublisher folder in XCode.
 8. Step 3 and 4 of this walk through is already done for you.
 9. Next, the procedure of step 6 and 7 will have to be repeated for Subscriber app. This time, give bundle identifier of "YMediaLabs.FirebaseAdsSubscriber" and drag and drop the `GoogleService-Info.plist` into FirebaseAdsSubscriber folder of XCode.
-10. Build and run the project.
+10. In order to access the database, authorization rules will have to be specified. We would like everyone to have read and write permissions without any authorization. For that, select Database from menu bar on left side and select sub-heading of RULES.
+11. Delete the existing rules and paste the below rules. Click on Publish after changing.
+~~~~
+{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+~~~~
+11. Build and run the project.
