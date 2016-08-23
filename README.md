@@ -27,4 +27,4 @@ A real time audience polling iOS application built on top of Firebase. As shown 
   }
 }
 ~~~~
-11. Build and run the project.
+Build and run the project.
